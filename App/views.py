@@ -1,12 +1,20 @@
 from django.shortcuts import render
 
 # Create your views here.
+from App.models import Wheel
+
+
 def index(request):
-    return render(request,'home/home.html')
+    wheels = Wheel.objects.all()
+
+    data = {
+        'wheels':wheels
+    }
+    return render(request,'home/home.html',context=data)
 
 
 def cart(request):
-    return None
+    return render(request,'cart/cart.html')
 
 
 def market(request):
@@ -14,4 +22,4 @@ def market(request):
 
 
 def mine(request):
-    return None
+    return render(request,'mine/mine.html')

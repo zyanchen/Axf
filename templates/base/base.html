@@ -29,7 +29,35 @@
 </div>
 
 {% block footer %}
-    <footer>尾部</footer>
+    <footer>
+        <a href="{% url 'App:index' %}" class="home">
+            <dl>
+                <dt> <span> </span> </dt>
+                <dd>首页</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'App:market' %}" class="market">
+            <dl>
+                <dt> <span> </span> </dt>
+                <dd>闪购超市</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'App:cart' %}" class="cart">
+            <dl>
+                <dt> <span> </span> </dt>
+                <dd>购物车</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'App:mine' %}" class="mine">
+            <dl>
+                <dt> <span> </span> </dt>
+                <dd>我的</dd>
+            </dl>
+        </a>
+    </footer>
 {% endblock %}
 
 </body>
