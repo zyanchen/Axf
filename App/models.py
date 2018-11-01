@@ -11,3 +11,11 @@ class Base(models.Model):
 class Wheel(Base):
     class Meta:
         db_table = 'axf_wheel'
+
+class Nav(Base):
+    class Meta:
+        db_table = 'axf_nav'
+
+class Mustbuy(Base):
+    class Meta:
+        db_table = 'axf_mustbuy'

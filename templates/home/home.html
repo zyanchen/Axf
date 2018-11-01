@@ -29,5 +29,32 @@
         <div class="swiper-pagination"></div>
         <!-- Add Arrows -->
         </div>
+    
+        
+        <div class="nav">
+            <ul>
+                {% for nav in navs %}
+                    <li>
+                        <img src="{{ nav.img }}" alt="">
+                        <span> {{ nav.name }} </span>
+                    </li>
+                {% endfor %}
+                
+            </ul>
+        </div>
+
+
+        <div class="swiper-container" id="mustbuySwiper">
+            <div class="swiper-wrapper">
+                {% for must in musts %}
+                    <div class="swiper-slide">
+                        <img src="{{ must.img }}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
     </div>
 {% endblock %}
