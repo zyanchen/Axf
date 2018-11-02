@@ -8,5 +8,36 @@
 {% endblock %}
 
 {% block content %}
-    闪购超市
+    <div class="market">
+        <div class="type-slider">
+            <ul>
+                {% for foodtype in foodtypes %}
+                    <li>
+                        <span></span>
+                        <a href="#">
+                            {{ foodtype.typename }}
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <span>
+                        全部类型
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        综合排序
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content"></div>
+    </div>
 {% endblock %}
