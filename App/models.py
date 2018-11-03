@@ -64,3 +64,24 @@ class Foodtypes(models.Model):
 
     class Meta:
         db_table = 'axf_foodtypes'
+
+
+class Goods(models.Model):
+    productid = models.CharField(max_length=10)
+    productimg = models.CharField(max_length=100)
+    productname = models.CharField(max_length=100)
+    productlongname = models.CharField(max_length=100)
+    isxf = models.BooleanField(default=False)
+    pmdesc = models.BooleanField(default=False)
+    specifics = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=7,decimal_places=2)
+    marketprice = models.DecimalField(max_digits=7,decimal_places=2)
+    categoryid = models.IntegerField()
+    childcid = models.IntegerField()
+    childcidname = models.CharField(max_length=100)
+    dealerid = models.CharField(max_length=10)
+    storenums = models.IntegerField()
+    productnum = models.IntegerField()
+
+    class Meta:
+        db_table = 'axf_goods'

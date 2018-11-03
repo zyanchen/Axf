@@ -3,6 +3,9 @@
 {% block extcss %}
     <link rel="stylesheet" href="{% static 'market/css/market.css' %}">
 {% endblock %}
+{% block extjs %}
+    <script src="{% static 'market/js/market.js' %}"></script>
+{% endblock %}
 {% block title %}
     爱鲜蜂 | 闪购超市
 {% endblock %}
@@ -12,9 +15,9 @@
         <div class="type-slider">
             <ul>
                 {% for foodtype in foodtypes %}
-                    <li>
+                    <li class="type-item">
                         <span></span>
-                        <a href="#">
+                        <a href="{% url 'App:market' foodtype.typeid 0 0 %}">
                             {{ foodtype.typename }}
                         </a>
                     </li>
@@ -22,15 +25,16 @@
 
             </ul>
         </div>
+
         <nav>
             <ul>
-                <li>
+                <li id="categoryBt">
                     <span>
                         全部类型
                         <i class="glyphicon glyphicon-chevron-up"></i>
                     </span>
                 </li>
-                <li>
+                <li id="sortBt">
                     <span>
                         综合排序
                         <i class="glyphicon glyphicon-chevron-up"></i>
@@ -38,6 +42,63 @@
                 </li>
             </ul>
         </nav>
-        <div class="main-content"></div>
+
+        <div class="main-content">
+            <div class="content-wrapper">
+                <ul>
+                    {% for foo in goodslist %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ foo.productimg }}" alt="" class="goods-img">
+                                <div class="goods-info">
+                                    <p class="name">
+                                        {{ foo.productlongname }}
+                                    </p>
+                                    <p class="detailtag">
+                                        {% if foo.isxf %}
+                                            <span class="xf">精选</span>
+                                        {% endif %}
+                                    </p>
+                                    <p class="specifics">
+                                        {{ foo.specifics }}
+                                    </p>
+                                    <p class="price">
+                                        <span class="now-price">{{ foo.price }}</span>
+                                        <span class="market-price">{{ foo.marketprice }}</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="bt-wrapper">
+                                <span class="glyphicon glyphicon-minus"></span>
+                                <span class="num">10</span>
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="bounce-view category-view" >
+                <div class="bounce-wrapper">
+                    {% for child in childTypleList %}
+                        <a href="{% url 'App:market' categoryid child.childid 0 %}">
+                            {{ child.childname }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="bounce-view sort-view">
+                <div class="bounce-wrapper">
+                    <a href="{% url 'App:market' categoryid childid 0 %}">综合排序</a>
+                    <a href="{% url 'App:market' categoryid childid 1 %}">销量排序</a>
+                    <a href="{% url 'App:market' categoryid childid 2 %}">价格最低</a>
+                    <a href="{% url 'App:market' categoryid childid 3 %}">价格最高</a>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 {% endblock %}
