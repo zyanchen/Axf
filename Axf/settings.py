@@ -25,7 +25,7 @@ SECRET_KEY = '_t^7+$6^a2s)!oseh^iwmwyxll1cx0*+76-^47#_=v-t2c_^*v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'AXF',
         'USER': 'root',
         'PASSWORD': 'zhuyu1002',
-        'HOST': '127.0.0.1',
+        'HOST': '120.77.44.31',
         'PORT': '3306'
     }
 }
